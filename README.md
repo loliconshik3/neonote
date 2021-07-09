@@ -14,3 +14,9 @@ CLI note manager, with simple cryptography.
 * Notes has been encrypted. You need a key for read it.
 
 * You can combinate keys, write some notes with first key, and another notes with second key.
+
+# Install
+
+1. Install requirments: `pip install -r requirments.txt`
+
+2. Start sh file: `sh start.sh`
