@@ -1,7 +1,6 @@
 from datetime import datetime
 from pyfzf import FzfPrompt
 import notecrypt
-import utils 
 import time
 import os
 
