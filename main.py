@@ -65,7 +65,7 @@ if __name__ == "__main__":
     password = input('SYSTEM: Please, write master-password with 16 or 32 letters\n')
     while len(password) < 16:
         password+=password
-    if len(password != 32):
+    if len(password) != 32:
         password = password[:16]
     fzf = FzfPrompt()
     start()
