@@ -9,7 +9,7 @@ CLI note manager, with simple cryptography.
 
 * Interface on pyfzf.
 
-* Write notes any length.
+* Write & rewrite notes with any length.
 
 * Notes has been encrypted. You need a key for read it.
 
