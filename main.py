@@ -36,12 +36,15 @@ def note_list_print():
                 note_description = crypt.decrypt(enc_str=note_lines[2], str_key=password)
                 note_date = os.path.getmtime(f"./notes/{note_filename}")
                 note_date = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(note_date))
-            except:
-                note_name = note_lines[0].replace('\n', '')
-                note_description = note_lines[2]
-                note_date = "Undefind"
 
-            note_list[note_name] = {"description": note_description, "date": note_date}
+                note_list[note_name] = {"description": note_description, "date": note_date}
+            except:
+                pass
+                #note_name = note_lines[0].replace('\n', '')
+                #note_description = note_lines[2]
+                #note_date = "Undefind"
+
+            #note_list[note_name] = {"description": note_description, "date": note_date}
 
     target = fzf.prompt(note_list.keys())[0]
 
