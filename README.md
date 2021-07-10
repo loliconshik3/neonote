@@ -3,7 +3,7 @@
 
 # Description
 
-CLI note manager, with simple cryptography.
+CLI note manager, with some interesting features.
 
 # Features
 
@@ -11,9 +11,7 @@ CLI note manager, with simple cryptography.
 
 * Write & rewrite notes with any length.
 
-* Notes has been encrypted. You need a key for read it.
-
-* You can combinate keys, write some notes with first key, and another notes with second key.
+* Use any editor for write your notes.
 
 # Install
 
