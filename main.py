@@ -10,13 +10,14 @@ def start():
 
 def note_save():
     note_name = crypt.encrypt(str_to_enc=input("SYSTEM: Please, input name for your note\n"), str_key=password)
+    os.system("clear")
     print("SYSTEM: Please, input description for your note")
     note_description = crypt.encrypt(str_to_enc="\n".join(iter(input, "")), str_key=password)
+    os.system("clear")
     #note_description = crypt.encrypt(str_to_enc=input("SYSTEM: Please, input description for your note\n"), str_key=password)
 
     note_count = len(os.listdir(f'./notes'))
 
-    #notecrypt.cryptname(note_name, password)
     with open(f"./notes/{note_count+1}", "w") as note_file:
         total_note = note_name + "\n\n" + note_description
         note_file.write(total_note)
@@ -39,7 +40,12 @@ def note_list_print():
                 note_date = os.path.getmtime(f"./notes/{note_filename}")
                 note_date = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(note_date))
 
-                note_list[note_name] = {"description": note_description, "date": note_date}
+                if note_name in note_list.keys():
+                    print(note_list[note_name])
+                    os.remove(f"./notes/{note_list[note_name]['filename']}")
+                    os.rename(f"./notes/{note_filename}", f"./notes/{note_list[note_name]['filename']}")
+
+                note_list[note_name] = {"description": note_description, "date": note_date, "filename": note_filename}
             except:
                 pass
                 #note_name = note_lines[0].replace('\n', '')
@@ -72,5 +78,7 @@ if __name__ == "__main__":
         password+=password
     if len(password) != 32:
         password = password[:16]
+
+    os.system("clear")
     fzf = FzfPrompt()
     start()
