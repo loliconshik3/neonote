@@ -1,5 +1,6 @@
 from pyfzf import FzfPrompt
 import notecrypt
+import time
 import os
 
 crypt = notecrypt.Crypt()
@@ -33,14 +34,14 @@ def note_list_print():
             try:
                 note_name = crypt.decrypt(enc_str=note_lines[0].replace('\n', ''), str_key=password)
                 note_description = crypt.decrypt(enc_str=note_lines[2], str_key=password)
+                note_date = os.path.getmtime(f"./notes/{note_filename}")
+                note_date = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(note_date))
             except:
                 note_name = note_lines[0].replace('\n', '')
                 note_description = note_lines[2]
-            #note_name = note_lines[0].replace('\n', '')
-            #note_description = note_lines[2]
-            #note_date = str(note_file.datetime)
+                note_date = "Undefind"
 
-            note_list[note_name] = {"description": note_description}#, "date": note_date}
+            note_list[note_name] = {"description": note_description, "date": note_date}
 
     target = fzf.prompt(note_list.keys())[0]
 
@@ -50,7 +51,7 @@ def note_list_print():
         note_save()
     else:
         os.system("clear")
-        print(f"\nNOTE: {target}\n")
+        print(f"\nNOTE: {target} | {note_list[target]['date']}\n")
         print(f"{note_list[target]['description']}")
 
     note_continue()
