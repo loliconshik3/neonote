@@ -10,7 +10,9 @@ def start():
 
 def note_save():
     note_name = crypt.encrypt(str_to_enc=input("SYSTEM: Please, input name for your note\n"), str_key=password)
-    note_description = crypt.encrypt(str_to_enc=input("SYSTEM: Please, input description for your note\n"), str_key=password)
+    print("SYSTEM: Please, input description for your note")
+    note_description = crypt.encrypt(str_to_enc="\n".join(iter(input, "")), str_key=password)
+    #note_description = crypt.encrypt(str_to_enc=input("SYSTEM: Please, input description for your note\n"), str_key=password)
 
     note_count = len(os.listdir(f'./notes'))
 
@@ -33,7 +35,7 @@ def note_list_print():
             note_lines = note_file.readlines()
             try:
                 note_name = crypt.decrypt(enc_str=note_lines[0].replace('\n', ''), str_key=password)
-                note_description = crypt.decrypt(enc_str=note_lines[2], str_key=password)
+                note_description = crypt.decrypt(enc_str=''.join(note_lines[2:]), str_key=password)
                 note_date = os.path.getmtime(f"./notes/{note_filename}")
                 note_date = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(note_date))
 
