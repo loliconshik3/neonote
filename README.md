@@ -15,4 +15,6 @@ CLI note manager, with some interesting features.
 
 # Install
 
-1. Use `sh start.sh`, for install all requirments, and run neonote.
+1. Use `sh install.sh`, for install all requirments.
+
+2. Use `sh start.sh`, for run neonote.

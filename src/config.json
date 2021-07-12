@@ -1,7 +1,7 @@
 {
 	"ALL_EDITORS" : [
 		"micro",
-		"vim",
-		"nano"
+		"nano",
+		"vim"
 	]
 }
