@@ -1,3 +1,7 @@
 {
-	"ALL_EDITORS" : ["micro", "vim", "nano"]
+	"ALL_EDITORS" : [
+		"micro",
+		"vim",
+		"nano"
+	]
 }

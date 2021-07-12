@@ -83,7 +83,7 @@ def note_list_print():
         elif choice == "SYSTEM | Edit":
             for editor in config['ALL_EDITORS']:
                 try:
-                    os.system(f"{editor} ./notes/{target}")
+                    os.system(f"{editor} './notes/{target}'")
                     break
                 except:
                     pass
