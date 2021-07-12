@@ -15,6 +15,4 @@ CLI note manager, with some interesting features.
 
 # Install
 
-1. Install requirments: `pip install -r requirments.txt`
-
-2. Start sh file: `sh start.sh`
+1. Use `sh start.sh`, for install all requirments, and run neonote.
